@@ -1,4 +1,4 @@
-package com.springboot.weixinxcx.config;
+package com.springboot.weixinxcx.config.dao;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.mybatis.spring.annotation.MapperScan;
