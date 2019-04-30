@@ -1,5 +1,6 @@
 package com.springboot.weixinxcx.controller;
 
+import com.springboot.weixinxcx.common.Constants;
 import com.springboot.weixinxcx.entity.Area;
 import com.springboot.weixinxcx.service.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,33 +19,33 @@ public class AreaController {
 
     @RequestMapping("/getAllAreas")
     public Map<String,Object> getAllAreas(){
-        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> map = new HashMap<>();
         List<Area> list = areaService.selectAll();
         map.put("result",list);
-        map.put("success",true);
+        map.put(Constants.SUCCESS,true);
         return map;
     }
 
     @RequestMapping("/getAreaById")
     public Map<String,Object> getAreaById(int id){
-        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> map = new HashMap<>();
         Area area = areaService.selectByPrimaryKey(id);
         map.put("result",area);
-        map.put("success",true);
+        map.put(Constants.SUCCESS,true);
         return map;
     }
 
     @RequestMapping("/addArea")
     public Map<String,Object> addArea(Area area){
-        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> map = new HashMap<>();
         areaService.insert(area);
-        map.put("success",true);
+        map.put(Constants.SUCCESS,true);
         return map;
     }
 
     @RequestMapping("/updateArea")
     public Map<String,Object> updateArea(Area area){
-        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> map = new HashMap<>();
         areaService.updateByPrimaryKey(area);
         map.put("success",true);
         return map;
@@ -52,7 +53,7 @@ public class AreaController {
 
     @RequestMapping("/deleteArea")
     public Map<String,Object> deleteArea(int id){
-        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> map = new HashMap<>();
         areaService.deleteByPrimaryKey(id);
         map.put("success",true);
         return map;
