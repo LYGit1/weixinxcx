@@ -1,6 +1,7 @@
 package com.springboot.weixinxcx.controller;
 
 import com.springboot.weixinxcx.common.Constants;
+import com.springboot.weixinxcx.common.DAOException;
 import com.springboot.weixinxcx.entity.Area;
 import com.springboot.weixinxcx.service.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class AreaController {
     }
 
     @RequestMapping("/addArea")
-    public Map<String,Object> addArea(Area area){
+    public Map<String,Object> addArea(Area area) throws DAOException {
         Map<String,Object> map = new HashMap<>();
         areaService.insert(area);
         map.put(Constants.SUCCESS,true);
@@ -44,7 +45,7 @@ public class AreaController {
     }
 
     @RequestMapping("/updateArea")
-    public Map<String,Object> updateArea(Area area){
+    public Map<String,Object> updateArea(Area area) throws DAOException {
         Map<String,Object> map = new HashMap<>();
         areaService.updateByPrimaryKey(area);
         map.put("success",true);
@@ -52,7 +53,7 @@ public class AreaController {
     }
 
     @RequestMapping("/deleteArea")
-    public Map<String,Object> deleteArea(int id){
+    public Map<String,Object> deleteArea(int id) throws DAOException {
         Map<String,Object> map = new HashMap<>();
         areaService.deleteByPrimaryKey(id);
         map.put("success",true);

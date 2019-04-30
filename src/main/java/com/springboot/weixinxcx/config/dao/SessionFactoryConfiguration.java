@@ -26,7 +26,7 @@ public class SessionFactoryConfiguration {
     private DataSource dataSource;
 
     @Bean(name="sqlSessionFactory")
-    public SqlSessionFactoryBean createSqlSessionFactoryBean() throws IOException {
+    public SqlSessionFactoryBean createSqlSessionFactoryBean(DataSource dataSource) throws IOException {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setConfigLocation(new ClassPathResource(mybatisConfig));//mybatis全局配置地址
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
